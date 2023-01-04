@@ -239,3 +239,20 @@ func (c *PublicData) GetUnderlying(req requests.GetUnderlying) (response respons
 	err = d.Decode(&response)
 	return
 }
+
+// GetFundingRate
+// Retrieve the estimated delivery price, which will only have a return value one hour before the delivery/exercise.
+//
+// https://www.okx.com/docs/zh/#rest-api-public-data-get-funding-rate
+func (c *PublicData) GetFundingRate(req requests.GetFundingRate) (response responses.GetFundingRate, err error) {
+	p := "/api/v5/public/funding-rate"
+	m := okex.S2M(req)
+	res, err := c.client.Do(http.MethodGet, p, false, m)
+	if err != nil {
+		return
+	}
+	defer res.Body.Close()
+	d := json.NewDecoder(res.Body)
+	err = d.Decode(&response)
+	return
+}
