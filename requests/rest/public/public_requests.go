@@ -57,11 +57,12 @@ type (
 		InstType okex.InstrumentType `json:"instType"`
 	}
 	GetPositionTiers struct {
-		InstID   string              `json:"instId,omitempty"`
-		Uly      string              `json:"uly,omitempty"`
-		InstType okex.InstrumentType `json:"instType"`
-		TdMode   okex.TradeMode      `json:"tdMode"`
-		Tier     okex.JSONInt64      `json:"tier,omitempty"`
+		InstID     string              `json:"instId,omitempty"`
+		Uly        string              `json:"uly,omitempty"`
+		InstType   okex.InstrumentType `json:"instType"`
+		TdMode     okex.TradeMode      `json:"tdMode"`
+		Tier       okex.JSONInt64      `json:"tier,omitempty"`
+		InstFamily string              `json:"instFamily,omitempty"`
 	}
 	GetUnderlying struct {
 		InstType okex.InstrumentType `json:"instType"`
