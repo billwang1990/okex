@@ -63,6 +63,7 @@ type (
 		TdMode     okex.TradeMode      `json:"tdMode"`
 		Tier       okex.JSONInt64      `json:"tier,omitempty"`
 		InstFamily string              `json:"instFamily,omitempty"`
+		Ccy        string              `json:"ccy,omitempty"`
 	}
 	GetUnderlying struct {
 		InstType okex.InstrumentType `json:"instType"`
