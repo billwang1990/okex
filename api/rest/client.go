@@ -78,7 +78,11 @@ func (c *ClientRest) Do(method, path string, private bool, params ...map[string]
 			}
 		}
 	} else {
-		j, err = json.Marshal(params)
+		if len(params) == 0 {
+			j, err = json.Marshal(params[0])
+		} else {
+			j, err = json.Marshal(params)
+		}
 		if err != nil {
 			return nil, err
 		}
